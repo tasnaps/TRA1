@@ -13,7 +13,9 @@ class TRAI_21_XI_tapiomer {
         return eiNull;
     }
     static int summaaLista(Integer[] taulu){
-        try{
+        if (tarkistus(taulu)){
+
+
             int pieni = taulu[0];
             int suuri = taulu[0];
 
@@ -34,10 +36,10 @@ class TRAI_21_XI_tapiomer {
             //System.out.println(suuri);
             int summa = pieni+suuri;
             return summa;
-
-        } catch (IndexOutOfBoundsException e){
-
+        } else{
+            return 0;
         }
+
     }
 
     public static void main(String[] args) {
