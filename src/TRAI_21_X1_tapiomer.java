@@ -11,7 +11,7 @@ class TRAI_21_XI_tapiomer {
 
             if(pieni<(taulu[i++])){
                 pieni = taulu[i];
-            }else if (pieni>(taulu[i++])){
+            }else if (suuri>(taulu[i++])){
                 suuri = taulu[i];
             }
         }
