@@ -2,7 +2,16 @@
     Kirjoita algoritmi joka palauttaa Integer listan pienimmän ja suurimman luvun summan.
  */
 
+import java.util.Arrays;
+
 class TRAI_21_XI_tapiomer {
+    static boolean tarkistus(Integer[] taulu){
+        boolean eiNull = false;
+        if(Arrays.stream(taulu).count()>0){
+           eiNull = true;
+        }
+        return eiNull;
+    }
     static int summaaLista(Integer[] taulu){
         try{
             int pieni = taulu[0];
