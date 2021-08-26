@@ -4,26 +4,36 @@
 
 class TRAI_21_XI_tapiomer {
     static int summaaLista(Integer[] taulu){
-        int pieni = 0;
-        int suuri = 0;
+        try{
 
-        for (int i=0; i<taulu.length; i++){
+        }
+        int pieni = taulu[0];
+        int suuri = taulu[0];
 
-            if(pieni<(taulu[i++])){
+        for (int i=1; i<taulu.length; i++){
+
+            if(pieni<=(taulu[i++])){
                 pieni = taulu[i];
-            }else if (suuri>(taulu[i++])){
+                System.out.println("Olen pieni: ");
+                System.out.println(pieni);
+
+            }else if (suuri>=(taulu[i++])){
                 suuri = taulu[i];
+                System.out.println("Olen suuri: ");
+                System.out.println(suuri);
             }
         }
-        System.out.println(pieni);
-        System.out.println(suuri);
+        //System.out.println(pieni);
+        //System.out.println(suuri);
         int summa = pieni+suuri;
         return summa;
 
     }
 
     public static void main(String[] args) {
-        Integer [] lista = new Integer[]{1,2,3,4,5};
-        System.out.println(summaaLista(lista));
+        //Integer [] lista = new Integer[]{1,2,3,4,5};
+        //int x =summaaLista(lista);
+        Integer [] tyhja = new Integer[]{};
+        System.out.println(summaaLista(tyhja));
     }
 }
