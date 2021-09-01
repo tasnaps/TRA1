@@ -4,44 +4,64 @@
 
 import java.util.Arrays;
 
-class TRAI_21_XI_tapiomer {
+class TRAI_21_XI_tapiomer implements TRA_21_XI {
+
+    //Palauttaa pienimmän ja suurimman luvun summan
+    //Jos yksi alkio, niin palautetaan se kaksinkertaisena
+    //jos tyhjä niin palautetaan null
     static boolean tarkistus(Integer[] taulu){
         boolean eiNull = false;
-        if(Arrays.stream(taulu).count()>0){
+        if(Arrays.stream(taulu).findAny().isPresent()){
            eiNull = true;
         }
         return eiNull;
     }
-    static Integer summaaLista(Integer[] taulu){
-        if (tarkistus(taulu)){
-            // Muuta arvoihin MAX ja MIN integer. ja muuta looppia näitä käyttäviksi
-            Integer pieni = taulu[0];
-            Integer suuri = taulu[0];
 
-            for (int i=1; i<taulu.length; i++){
-
-                if(pieni<=(taulu[i++])){
-                    pieni = taulu[i];
-
-                }else if (suuri>=(taulu[i++])){
-                    suuri = taulu[i];
+    static Integer tulostaSumma(Integer[] A){
+        int indeksi= 0;
+        int pienin= Integer.MAX_VALUE;
+        int suurin = Integer.MIN_VALUE;
+        int total = A.length;
+        if(tarkistus(A)){
+            while(indeksi<total){
+                try {
+                    if((pienin>A[indeksi])){
+                        pienin = A[indeksi];
+                    }
+                    indeksi++;
+                } catch (NullPointerException exception){
+                    indeksi++;
                 }
             }
-            Integer summa = pieni+suuri;
-            return summa;
-        } else{
+            indeksi = 0;
+            while(indeksi<total){
+                try {
+                    if((suurin<A[indeksi])){
+                        suurin = A[indeksi];
+                    }
+                    indeksi++;
+                } catch (NullPointerException exception){
+                    indeksi++;
+                }
+            }
+        }else {
             return null;
         }
 
+
+        int summa = pienin + suurin;
+        return summa;
     }
 
     public static void main(String[] args) {
         Integer [] lista = new Integer[]{1,2,3,4,5};
+        Integer [] yksi = new Integer[]{6};
+        Integer pienin = tulostaSumma(lista);
+        Integer yksin = tulostaSumma(yksi);
         Integer [] tyhja = new Integer[]{};
-        Integer [] yksi = new Integer[]{2};
-        System.out.println(summaaLista(tyhja));
-        System.out.println(summaaLista(lista));
-        System.out.println(summaaLista(yksi));
+        Integer testi = tulostaSumma(tyhja);
+        System.out.println(testi);
+        //System.out.println(pienin);
 
     }
 }
