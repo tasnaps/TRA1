@@ -14,6 +14,7 @@ class TRAI_21_XI_tapiomer {
     }
     static Integer summaaLista(Integer[] taulu){
         if (tarkistus(taulu)){
+            // Muuta arvoihin MAX ja MIN integer. ja muuta looppia näitä käyttäviksi
             Integer pieni = taulu[0];
             Integer suuri = taulu[0];
 
